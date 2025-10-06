@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <style>
+        body { font-family: sans-serif; padding: 2rem; }
+        .logout-form { display: inline; }
+        .logout-button { background: none; border: none; color: blue; text-decoration: underline; cursor: pointer; padding: 0; }
+    </style>
+</head>
+<body>
+<h1>Welcome to the Southern Goods Dashboard</h1>
+
+<p>
+    You are logged in as: <b sec:authentication="name">Username</b>
+</p>
+<p>
+    Your role is: <b sec:authentication="principal.authorities">ROLE</b>
+</p>
+
+<br/>
+
+<form class="logout-form" th:action="@{/logout}" method="post">
+    <button type="submit" class="logout-button">Logout</button>
+</form>
+
+</body>
+</html>
